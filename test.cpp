@@ -1,4 +1,4 @@
-//Stay Hungry Stay Foolish:)
+//This code is under Creative Common's License, Use however you want :)
 
 // Code to include while compiling files :g++ -o test -I/add.h -I/mul.h
 
@@ -7,14 +7,31 @@
 using namespace std;
 string password = "fuckin";
 
-bool password_validator(string pass)
+bool password_validator()
 {
-    int trials=3;
-    while(trials--){
-        if(pass==password){
-            return true;    
+    string pass;
+    int trials = 3;
+    while (trials)
+    {
+        if (trials == 3)
+        {
+            cout << "Enter your password: ";
+            cin >> pass;
+            cout << endl;
+        }
+        if (trials != 3)
+        {
+            cout << "You've entered wrong password, Try again: ";
+            cin >> pass;
+            cout << endl;
+        }
+
+        if (pass == password)
+        {
+            return true;
             break;
         }
+        trials--;
     }
     return false;
 }
@@ -22,24 +39,21 @@ bool password_validator(string pass)
 int main()
 {
     string uname;
-    cout<<"Enter your username: "<<endl;
+    cout << "Enter your username: ";
     cin >> uname;
-    string pass;
-    cout<<"Enter your password: "<<endl;
-    cin >> pass;
-    if (password_validator(password))
+
+    if (password_validator())
     {
 
         cout << "\t***********************************" << endl;
 
-        cout << "Welcome " + uname << endl;
+        cout << "\n\t  Welcome to your profile " + uname << endl;
 
-        cout<<"\t***********************************"<<endl;
+        cout << "\n\t***********************************" << endl;
     }
 
     else
     {
-        cout<<"\t You have entered the wrong password thrice, Try again! "<<endl;
+        cout << "\t You have entered the wrong password thrice, Try again! " << endl;
     }
-    
 }
